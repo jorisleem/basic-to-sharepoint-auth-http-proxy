@@ -1,5 +1,5 @@
-FROM node:10-alpine
-MAINTAINER Stefan Kleeschulte
+FROM node:20-alpine
+MAINTAINER Joris
 WORKDIR /usr/src/app
 RUN npm install forever -g
 COPY package*.json ./
