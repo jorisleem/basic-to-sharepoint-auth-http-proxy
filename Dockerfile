@@ -3,7 +3,7 @@ MAINTAINER Joris
 WORKDIR /usr/src/app
 RUN npm install forever -g
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm install --production
 COPY . .
 ENV  NODE_ENV production
 EXPOSE 3000
