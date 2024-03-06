@@ -5,7 +5,7 @@ HTTP authentication.
 
 This proxy was primarily built to access Microsoft OneDrive for Business over WebDAV with WebDAV clients that can only
 do HTTP Basic authentication. If you want to access OneDrive personal over WebDAV with Basic authentication, have a look
-at [basic-to-passport-auth-http-proxy](https://github.com/skleeschulte/basic-to-passport-auth-http-proxy).
+at [basic-to-passport-auth-http-proxy](https://github.com/jorisleem/basic-to-passport-auth-http-proxy).
 
 ## Running the proxy
 
@@ -42,34 +42,18 @@ If `SHAREPOINT_AUTH_URL` is set, it is passed to node-sp-auth's
 ### Running with Docker
 
 - Find the latest Docker image tag at Docker Hub:  
-  https://hub.docker.com/r/skleeschulte/basic-to-sharepoint-auth-http-proxy
+  https://hub.docker.com/r/jorisleem/basic-to-sharepoint-auth-http-proxy
 - Pull the image:  
-  `docker pull skleeschulte/basic-to-sharepoint-auth-http-proxy:TAG`  
+  `docker pull jorisleem/basic-to-sharepoint-auth-http-proxy:TAG`  
   (Replace TAG with an actual tag from the Docker Hub.)
 - Run the image:  
-  `docker run --name sharepoint-proxy -d -p 3000:3000 -e PROXY_TARGET=https://example-my.sharepoint.net/ --restart always skleeschulte/basic-to-sharepoint-auth-http-proxy:TAG`  
+  `docker run --name sharepoint-proxy -d -p 3000:3000 -e PROXY_TARGET=https://example-my.sharepoint.net/ --restart always jorisleem/basic-to-sharepoint-auth-http-proxy:TAG`  
   (Again, replace TAG with the one you just pulled.)
 - Check if it started successfully:  
   `docker logs sharepoint-proxy`  
   (The output should be something like `proxy:info Proxy server listening: { address: '::', family: 'IPv6', port: 3000 }`.)
 
 Or use your favourite Docker UI for these steps.
-
-### Running with Node.js
-
-Make sure you have a suitable Node.js installed (the proxy server was developed with Node.js version 10 (version
-10.16.0, to be precise).
-
-- Get a copy of this repository (choose a version tag on the top left, then choose "Clone or download" in the same
-  line).
-- Extract the files and change to the directory.
-- Install the dependencies:  
-  `npm ci --only=production`
-- Set the environment variables (see above).  
-  On Linux: `export PROXY_TARGET=https://example-my.sharepoint.net/`  
-  On Windows: `set PROXY_TARGET=https://example-my.sharepoint.net/`
-- Run the server:  
-  `node lib/server.js`
 
 ## Usage
 
