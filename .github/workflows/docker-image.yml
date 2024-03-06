@@ -30,13 +30,6 @@ jobs:
       with:
         context: .
         push: true
-        platforms: linux/amd64
-        tags: "jorisleem/basic-to-sharepoint-auth-http-proxy:latest"
-    - name: Build and push
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        push: true
         platforms: linux/arm64
         tags: "jorisleem/basic-to-sharepoint-auth-http-proxy:latest"
     
