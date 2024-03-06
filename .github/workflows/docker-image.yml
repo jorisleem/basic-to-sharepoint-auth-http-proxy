@@ -30,5 +30,6 @@ jobs:
       with:
         context: .
         push: true
+        platforms: linux/amd64,linux/arm64
         tags: "jorisleem/basic-to-sharepoint-auth-http-proxy:latest"
     
